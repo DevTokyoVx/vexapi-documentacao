@@ -3,7 +3,7 @@ const https = require('https');
 /**
  * Função que faz a requisição para a Vex API e extrai o JSON retornado
  *
-* Observações importantes sobre a Vex API SoundCloud:
+ * Observações importantes sobre a Vex API SoundCloud:
  *  - Sempre retorna JSON dentro de um HTML, dentro da tag <pre id="json">
  * Esta função tenta extrair o JSON corretamente e retorna sempre um objeto JS.
  * @param {string} url - URL completa da API, incluindo API key e query
