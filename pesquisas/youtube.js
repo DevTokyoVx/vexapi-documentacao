@@ -1,4 +1,3 @@
-// arquivo: vexYoutube.js
 const https = require('https');
 
 /**
