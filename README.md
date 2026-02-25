@@ -97,9 +97,9 @@ Isso evita que o cliente fique sem requisições rapidamente e garante um uso eq
 
 ## 💰 Preços e Planos
 
-Você pode acessar nossa tabela de preços completa clicando abaixo:
+Você pode acessar nossa tabela completa de preços clicando abaixo:
 
-👉 **https://vexapi.com.br**
+👉 **https://vexapi.com.br/plans**
 
 ---
 
