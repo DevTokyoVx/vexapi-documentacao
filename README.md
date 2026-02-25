@@ -57,8 +57,8 @@ Ela foi pensada tanto para **quem está iniciando**, quanto para profissionais q
 - Funções para bots, automações e sistemas  
 - Dashboard completa para gestão do consumo  
 - Suporte ativo e comunidade participativa  
-- Pagina de sugestões votáveis pela comunidade  
-- Sistema de reportes integrado diretamente nos endpoints  
+- Página de sugestões votáveis pela comunidade  
+- **Sistema de reportes integrado diretamente nos endpoints**  
 
 Se você é iniciante, vai aprender rápido.  
 Se você já é experiente, vai ganhar tempo e produtividade.
@@ -71,7 +71,8 @@ Se você já é experiente, vai ganhar tempo e produtividade.
   <img src="https://hobsidian.shop/uploads/templates-api/2aac19bedbe978de3a5c.jfif" alt="VEX API Dashboard" width="650" style="border-radius: 12px;">
 </p>
 
-A dashboard foi criada para ser **objetiva**, **moderna** e extremamente fácil de usar.  
+A dashboard foi criada para ser **objetiva**, **moderna** e extremamente fácil de usar.
+
 Com ela, você pode:
 
 - Ver estatísticas completas  
@@ -79,10 +80,8 @@ Com ela, você pode:
 - Gerenciar sua chave de API  
 - Controlar planos e limites  
 - Monitorar logs  
-- Enviar e acompanhar reportes  
+- **Enviar e acompanhar reportes**  
 - Configurar integrações  
-
-A VEX API foi feita para ser prática.
 
 ---
 
@@ -103,16 +102,16 @@ Por isso, criamos uma página exclusiva onde qualquer usuário pode:
 
 ---
 
-# 🛠️ Sistema de Reportes nas Rotas da API
+# 🛠️ Sistema de Reportes — Reporte Erros Diretamente nas Rotas da API
 
 A Vex API conta com um sistema nativo para os usuários **reportarem erros diretamente em qualquer endpoint**.
 
 Sempre que o usuário encontrar um possível erro em uma rota, ele poderá:
 
 - Preencher uma descrição do problema  
-- Enviar o reporte em segundos  
+- Enviar o reporte rapidamente  
 - Ter seu reporte enviado automaticamente para a equipe da Vex API  
-- Aguardar retorno diretamente pelo painel de reportes  
+- Receber retorno posteriormente na área de reportes  
 
 <p align="center">
   <img src="https://hobsidian.shop/uploads/templates-api/0aac612f649441b35496.jfif" alt="Reporte em rota" width="650" style="border-radius: 12px;">
@@ -120,18 +119,32 @@ Sempre que o usuário encontrar um possível erro em uma rota, ele poderá:
 
 ---
 
-## 📁 Página de Meus Reportes
+# 📁 Página com a Lista Completa de Reportes
 
-Todos os reportes enviados ficam salvos na página:
+Todos os reportes enviados ficam salvos em uma página dedicada:
 
 👉 **https://vexapi.com.br/my-reportes**
 
-Lá o usuário pode:
+Nessa página o usuário pode:
 
-- Ver todos os reportes enviados  
+- Ver a lista completa de todos os reportes já enviados  
 - Conferir o status de cada reporte  
-- Acessar detalhes completos  
-- Visualizar a resposta do administrador (caso já tenha sido concluído)  
+- Clicar para abrir detalhes  
+- Acompanhar a evolução de cada caso  
+
+<p align="center">
+  <img src="https://hobsidian.shop/uploads/templates-api/014a3e30cc736d2b37c1.jfif" alt="Lista de reportes" width="650" style="border-radius: 12px;">
+</p>
+
+---
+
+# 🔍 Página de Detalhes de um Reporte
+
+Ao clicar em **ver detalhes**, o usuário encontra:
+
+- Informações completas do reporte  
+- Status atual (pendente, revisando, concluído etc.)  
+- Caso esteja concluído → **pode visualizar a resposta do administrador**  
 
 <p align="center">
   <img src="https://hobsidian.shop/uploads/templates-api/18078d4a773aac79da7f.jfif" alt="Página de detalhes do reporte" width="650" style="border-radius: 12px;">
@@ -147,7 +160,7 @@ As **requisições diárias** representam a quantidade de requisições que um u
 
 > 💡 **Você pode usar o valor total das suas requisições todos os dias, durante todo o mês.**
 
-Isso evita que o cliente fique sem requisições rapidamente e garante um uso equilibrado e estável.
+Isso evita que o usuário fique sem requisições rapidamente e garante uma experiência estável.
 
 ---
 
