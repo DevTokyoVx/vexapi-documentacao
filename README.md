@@ -1,6 +1,11 @@
 <p align="center">
   <a href="https://vexapi.com.br/" target="_blank">
-    <img src="https://hobsidian.shop/uploads/templates-api/4a5478228d67f0e0.png" width="180" alt="Logo Vex API">
+    <img 
+      src="https://hobsidian.shop/uploads/templates-api/4a5478228d67f0e0.png" 
+      width="180" 
+      alt="Logo Vex API"
+      style="border-radius: 50%;"
+    >
   </a>
 </p>
 
