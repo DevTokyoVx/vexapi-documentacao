@@ -1,7 +1,19 @@
+<p align="center">
+  <a href="https://vexapi.com.br/" target="_blank">
+    <img src="https://hobsidian.shop/uploads/templates-api/4a5478228d67f0e0.png" width="180" alt="Logo Vex API">
+  </a>
+</p>
+
 # 📚 Vex API – Documentação & Exemplos
 
 Exemplos práticos e documentação detalhada de uso da **Vex API**, voltados para desenvolvedores iniciantes e profissionais.  
 Inclui tutoriais de integração, scripts em **Node.js** e demonstrações de como consumir e manipular os dados retornados pela API.
+
+---
+
+## 🌐 Site oficial da Vex API
+
+👉 **Acesse:** https://vexapi.com.br/
 
 ---
 
