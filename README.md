@@ -54,9 +54,9 @@ Ela foi pensada tanto para **quem está iniciando na programação**, quanto par
 
 - Endpoints rápidos e otimizados  
 - Geração de imagens, efeitos, figurinhas e GIFs  
-- Funções para bots, sistemas e automações  
-- Painel completo para acompanhar consumo  
-- Suporte constante e melhorias contínuas  
+- Funções para bots e automações avançadas  
+- Dashboard completa para gestão do consumo  
+- Suporte ativo e comunidade participativa  
 
 Se você é iniciante, vai aprender rápido.  
 Se você já é experiente, vai ganhar tempo e produtividade.
@@ -83,6 +83,25 @@ A VEX API foi feita para ser prática.
 
 ---
 
+## 🗳️ Sistema de Sugestões – A Vex API é construída com você!  
+
+A equipe da **Vex API** valoriza profundamente as **opiniões e sugestões dos usuários**.  
+Por isso, criamos uma página exclusiva onde qualquer usuário pode:
+
+- Enviar sugestões para novos recursos  
+- Votar em sugestões de outros usuários (👍 sim / 👎 não)  
+- Ajudar a decidir o futuro da API  
+- Acompanhar ideias em votação  
+- Propor melhorias, desde que sigam os termos de uso  
+
+A participação ativa da comunidade é o que torna a VEX API cada vez melhor.
+
+<p align="center">
+  <img src="https://hobsidian.shop/uploads/templates-api/8c89ae77875eaed91606.jfif" alt="Página de sugestões" width="650" style="border-radius: 12px;">
+</p>
+
+---
+
 ## 🔄 O que são requisições diárias?
 
 As **requisições diárias** representam a quantidade de requisições que um usuário pode fazer **todos os dias**, durante um mês inteiro.
@@ -91,13 +110,13 @@ As **requisições diárias** representam a quantidade de requisições que um u
 
 > 💡 **Você pode usar o valor total das suas requisições todos os dias, durante todo o mês.**
 
-Isso evita que o cliente fique sem requisições rapidamente e garante um uso equilibrado e estável.
+Assim você nunca fica sem requisições do nada e mantém seu sistema estável.
 
 ---
 
 ## 💰 Preços e Planos
 
-Você pode acessar nossa tabela completa de preços clicando abaixo:
+Consulte nossa página oficial de planos e valores:
 
 👉 **https://vexapi.com.br/plans**
 
@@ -111,4 +130,4 @@ Sinta-se livre para abrir issues, enviar sugestões ou criar PRs para ajudar a m
 
 ## ⭐ Gostou?
 
-Considere deixar uma **estrela (⭐)** no repositório para ajudar o projeto a crescer!
+Considere deixar uma **estrela (⭐)** no repositório para apoiar o projeto e ajudar a comunidade!
