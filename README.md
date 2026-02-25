@@ -48,22 +48,24 @@ Aqui você vai encontrar:
 ## 🔥 O que é a VEX API?
 
 A **VEX API** é uma plataforma criada para tornar a criação de bots, sistemas, automações e integrações algo simples, rápido e acessível.  
-Ela foi pensada tanto para **quem está iniciando na programação**, quanto para profissionais que desejam **agilidade e eficiência** no desenvolvimento.
+Ela foi pensada tanto para **quem está iniciando**, quanto para profissionais que desejam **agilidade e eficiência** no desenvolvimento.
 
-### O que ela oferece?
+### A VEX API oferece:
 
 - Endpoints rápidos e otimizados  
 - Geração de imagens, efeitos, figurinhas e GIFs  
-- Funções para bots e automações avançadas  
+- Funções para bots, automações e sistemas  
 - Dashboard completa para gestão do consumo  
 - Suporte ativo e comunidade participativa  
+- Pagina de sugestões votáveis pela comunidade  
+- Sistema de reportes integrado diretamente nos endpoints  
 
 Se você é iniciante, vai aprender rápido.  
 Se você já é experiente, vai ganhar tempo e produtividade.
 
 ---
 
-## 📊 Dashboard da VEX API
+# 📊 Dashboard da VEX API
 
 <p align="center">
   <img src="https://hobsidian.shop/uploads/templates-api/2aac19bedbe978de3a5c.jfif" alt="VEX API Dashboard" width="650" style="border-radius: 12px;">
@@ -77,24 +79,23 @@ Com ela, você pode:
 - Gerenciar sua chave de API  
 - Controlar planos e limites  
 - Monitorar logs  
+- Enviar e acompanhar reportes  
 - Configurar integrações  
 
 A VEX API foi feita para ser prática.
 
 ---
 
-## 🗳️ Sistema de Sugestões – A Vex API é construída com você!  
+# 🗳️ Sistema de Sugestões — Construímos a VEX API Junto com Você!
 
 A equipe da **Vex API** valoriza profundamente as **opiniões e sugestões dos usuários**.  
 Por isso, criamos uma página exclusiva onde qualquer usuário pode:
 
-- Enviar sugestões para novos recursos  
+- Enviar sugestões  
 - Votar em sugestões de outros usuários (👍 sim / 👎 não)  
 - Ajudar a decidir o futuro da API  
 - Acompanhar ideias em votação  
-- Propor melhorias, desde que sigam os termos de uso  
-
-A participação ativa da comunidade é o que torna a VEX API cada vez melhor.
+- Enviar ideias desde que sigam os termos de uso  
 
 <p align="center">
   <img src="https://hobsidian.shop/uploads/templates-api/8c89ae77875eaed91606.jfif" alt="Página de sugestões" width="650" style="border-radius: 12px;">
@@ -102,19 +103,55 @@ A participação ativa da comunidade é o que torna a VEX API cada vez melhor.
 
 ---
 
-## 🔄 O que são requisições diárias?
+# 🛠️ Sistema de Reportes nas Rotas da API
 
-As **requisições diárias** representam a quantidade de requisições que um usuário pode fazer **todos os dias**, durante um mês inteiro.
+A Vex API conta com um sistema nativo para os usuários **reportarem erros diretamente em qualquer endpoint**.
 
-➡️ Diferente de outras APIs, onde você compra um pacote de requisições e pode gastar tudo em 1 dia, a VEX API trabalha de forma **mais justa**:
+Sempre que o usuário encontrar um possível erro em uma rota, ele poderá:
 
-> 💡 **Você pode usar o valor total das suas requisições todos os dias, durante todo o mês.**
+- Preencher uma descrição do problema  
+- Enviar o reporte em segundos  
+- Ter seu reporte enviado automaticamente para a equipe da Vex API  
+- Aguardar retorno diretamente pelo painel de reportes  
 
-Assim você nunca fica sem requisições do nada e mantém seu sistema estável.
+<p align="center">
+  <img src="https://hobsidian.shop/uploads/templates-api/0aac612f649441b35496.jfif" alt="Reporte em rota" width="650" style="border-radius: 12px;">
+</p>
 
 ---
 
-## 💰 Preços e Planos
+## 📁 Página de Meus Reportes
+
+Todos os reportes enviados ficam salvos na página:
+
+👉 **https://vexapi.com.br/my-reportes**
+
+Lá o usuário pode:
+
+- Ver todos os reportes enviados  
+- Conferir o status de cada reporte  
+- Acessar detalhes completos  
+- Visualizar a resposta do administrador (caso já tenha sido concluído)  
+
+<p align="center">
+  <img src="https://hobsidian.shop/uploads/templates-api/18078d4a773aac79da7f.jfif" alt="Página de detalhes do reporte" width="650" style="border-radius: 12px;">
+</p>
+
+---
+
+# 🔄 O que são requisições diárias?
+
+As **requisições diárias** representam a quantidade de requisições que um usuário pode fazer **todos os dias**, durante um mês inteiro.
+
+➡️ Diferente de outras APIs, onde você compra um pacote e pode gastar tudo em um único dia, a VEX API trabalha de forma **mais justa**:
+
+> 💡 **Você pode usar o valor total das suas requisições todos os dias, durante todo o mês.**
+
+Isso evita que o cliente fique sem requisições rapidamente e garante um uso equilibrado e estável.
+
+---
+
+# 💰 Preços e Planos
 
 Consulte nossa página oficial de planos e valores:
 
@@ -122,12 +159,12 @@ Consulte nossa página oficial de planos e valores:
 
 ---
 
-## 🧑‍💻 Contribuições
+# 🧑‍💻 Contribuições
 
 Sinta-se livre para abrir issues, enviar sugestões ou criar PRs para ajudar a melhorar este repositório.
 
 ---
 
-## ⭐ Gostou?
+# ⭐ Gostou?
 
-Considere deixar uma **estrela (⭐)** no repositório para apoiar o projeto e ajudar a comunidade!
+Considere deixar uma **estrela (⭐)** no repositório para apoiar o projeto e fortalecer a comunidade!
