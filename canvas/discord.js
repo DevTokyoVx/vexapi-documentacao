@@ -1,75 +1,65 @@
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
-
 /**
  * ============================================
- * SCRIPT PARA GERAR CARTÃO DE PERFIL DO DISCORD
+ * 📡 VEX API - CANVAS / DISCORDPROFILE
  * ============================================
  *
- * Endpoint: /api/canvas/discordprofile
+ * 🔗 ENDPOINT:
+ *   /api/canvas/discordprofile
  *
- * FUNCIONAMENTO:
- *  - Gera um cartão de perfil de usuário do Discord.
- *  - Todos os parâmetros enviados são adicionados à URL da API.
- *  - A API já retorna a imagem processada pronta.
+ * 🧠 DESCRIÇÃO:
+ *   Gera um cartão de perfil personalizado do Discord com base
+ *   nas informações fornecidas.
  *
- * PARÂMETROS DISPONÍVEIS:
- *  - username (obrigatório)        -> Nome do usuário exibido no cartão
- *  - discriminator (opcional)      -> Tag do Discord (#0000), padrão "1234"
- *  - avatar (obrigatório)          -> URL do avatar do usuário
- *  - banner (opcional)             -> URL do banner personalizado
- *  - aboutme (opcional)            -> Texto de "Sobre Mim" (possui padrão)
- *  - status (opcional)             -> online, idle, dnd, offline (padrão: online)
- *  - membersince (opcional)        -> Data de criação da conta (Ex: 25 Mai 2020)
- *  - servermembersince (opcional)  -> Data em que entrou no servidor
- *  - apikey (obrigatório)          -> Chave pessoal da Vex API
+ * ⚙️ PARÂMETROS:
+ *   - username: string (obrigatório)
+ *     Nome do usuário exibido no cartão
  *
- * OBSERVAÇÃO:
- *  - Se algum parâmetro opcional não for enviado, a API aplica valores padrão.
- *  - Este script baixa a imagem processada e salva localmente.
+ *   - avatar: string (obrigatório)
+ *     URL do avatar do usuário
+ *
+ *   - discriminator: string (opcional)
+ *     Tag do Discord (ex: 1234)
+ *
+ *   - banner: string (opcional)
+ *     URL do banner personalizado
+ *
+ *   - aboutme: string (opcional)
+ *     Texto de "Sobre Mim"
+ *
+ *   - status: string (opcional)
+ *     online, idle, dnd, offline (padrão: online)
+ *
+ *   - membersince: string (opcional)
+ *     Data de criação da conta (ex: 25 Mai 2020)
+ *
+ *   - servermembersince: string (opcional)
+ *     Data de entrada no servidor
+ *
+ * 🔑 AUTENTICAÇÃO:
+ *   - apikey: string (obrigatório)
+ *     Chave de acesso da Vex API
+ *
+ * 📤 RESPOSTA:
+ *   Tipo: IMAGEM (PNG)
+ *   A API retorna diretamente a imagem gerada (não há JSON).
+ *
+ * 💡 EXEMPLO DE USO:
  */
 
-// ==========================
-// CONFIGURAÇÃO
-// ==========================
-const apikey = '5c9c1d4b-900e-4892-8f2c-24e31a51a614'; // Sua chave Vex API
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Dados do perfil
-const username = 'Vex API';
-const discriminator = '1234'; // opcional
-const avatar = 'https://i.pinimg.com/736x/cc/f6/89/ccf689f0c8dd0d85dc9ce74bfc7a86c7.jpg';
-const banner = ''; // opcional
-const aboutme = 'Desenvolvedor e entusiasta de APIs'; // opcional
-const status = 'online'; // opcional: online, idle, dnd, offline
-const membersince = '25 Mai 2020'; // opcional
-const servermembersince = '01 Jan 2022'; // opcional
+// recriando __dirname no ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// URL completa da API
-const urlAPI = `https://vexapi.com.br/api/canvas/discordprofile?apikey=${apikey}` +
-    `&username=${encodeURIComponent(username)}` +
-    `&discriminator=${encodeURIComponent(discriminator)}` +
-    `&avatar=${encodeURIComponent(avatar)}` +
-    `&banner=${encodeURIComponent(banner)}` +
-    `&aboutme=${encodeURIComponent(aboutme)}` +
-    `&status=${encodeURIComponent(status)}` +
-    `&membersince=${encodeURIComponent(membersince)}` +
-    `&servermembersince=${encodeURIComponent(servermembersince)}`;
-
-// Caminho para salvar a imagem
-const destinoLocal = path.join(__dirname, 'discord_profile.png');
-
-/**
- * Função para baixar a imagem da API e salvar localmente
- *
- * @param {string} url - URL da imagem processada pela API
- * @param {string} destino - Caminho local do arquivo de saída
- */
 function baixarImagem(url, destino) {
     return new Promise((resolve, reject) => {
         https.get(url, (res) => {
             if (res.statusCode !== 200) {
-                return reject(new Error(`Falha ao baixar a imagem. Status Code: ${res.statusCode}`));
+                return reject(new Error(`Status Code: ${res.statusCode}`));
             }
 
             const file = fs.createWriteStream(destino);
@@ -79,21 +69,57 @@ function baixarImagem(url, destino) {
             file.on('error', (err) => {
                 fs.unlink(destino, () => reject(err));
             });
-        }).on('error', (err) => reject(err));
+        }).on('error', reject);
     });
 }
 
-// ==========================
-// EXECUÇÃO
-// ==========================
+const apikey = 'SUA-API-KEY';
+
+// dados do perfil
+const username = 'Vex API';
+const discriminator = '1234';
+const avatar = 'https://i.pinimg.com/736x/cc/f6/89/ccf689f0c8dd0d85dc9ce74bfc7a86c7.jpg';
+const banner = '';
+const aboutme = 'Desenvolvedor e entusiasta de APIs';
+const status = 'online';
+const membersince = '25 Mai 2020';
+const servermembersince = '01 Jan 2022';
+
+const url = `https://vexapi.com.br/api/canvas/discordprofile?apikey=${apikey}` +
+    `&username=${encodeURIComponent(username)}` +
+    `&discriminator=${encodeURIComponent(discriminator)}` +
+    `&avatar=${encodeURIComponent(avatar)}` +
+    `&banner=${encodeURIComponent(banner)}` +
+    `&aboutme=${encodeURIComponent(aboutme)}` +
+    `&status=${encodeURIComponent(status)}` +
+    `&membersince=${encodeURIComponent(membersince)}` +
+    `&servermembersince=${encodeURIComponent(servermembersince)}`;
+
+const caminho = path.join(__dirname, 'discord_profile.png');
+
 (async () => {
     try {
         console.log('🔹 Gerando cartão de perfil do Discord...');
 
-        await baixarImagem(urlAPI, destinoLocal);
+        await baixarImagem(url, caminho);
 
-        console.log('✅ Cartão gerado com sucesso em:', destinoLocal);
+        console.log('✅ Cartão salvo em:', caminho);
     } catch (err) {
-        console.error('❌ Erro ao gerar cartão do Discord:', err.message);
+        console.error('❌ Erro:', err.message);
     }
 })();
+
+/**
+ * 🚀 OBSERVAÇÕES:
+ *   - Parâmetros opcionais possuem valores padrão
+ *   - A imagem é retornada diretamente pela API
+ *   - Não há estrutura JSON de resposta
+ *   - URLs devem ser corretamente codificadas
+ *
+ * 👨‍💻 CRIADO POR:
+ *   Vex Tech Solutions
+ *
+ * 📅 ATUALIZADO EM:
+ *   25/04/2026
+ * ============================================
+ */

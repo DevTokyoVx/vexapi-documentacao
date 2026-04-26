@@ -1,68 +1,59 @@
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
-
 /**
  * ============================================
- * SCRIPT PARA GERAR GIF DE BOAS-VINDAS
+ * 📡 VEX API - CANVAS / WELCOMEGIF
  * ============================================
  *
- * Endpoint: /api/canvas/welcomegif
+ * 🔗 ENDPOINT:
+ *   /api/canvas/welcomegif
  *
- * FUNCIONAMENTO:
- *  - Gera um GIF de boas-vindas com avatar, fundo animado e textos personalizados.
- *  - A API já retorna o GIF processado, então o script apenas baixa o arquivo.
+ * 🧠 DESCRIÇÃO:
+ *   Gera um GIF animado de boas-vindas com avatar,
+ *   fundo animado e textos personalizados.
  *
- * PARÂMETROS DISPONÍVEIS:
- *  - avatarUrl (OBRIGATÓRIO)   -> URL do avatar do usuário
- *  - gifUrl (OPCIONAL)         -> GIF de fundo personalizado, padrão se não informado
- *  - welcomeText (OPCIONAL)    -> Texto principal (default: 'Welcome!')
- *  - subText (OPCIONAL)        -> Texto secundário (default: 'Bem-vindo(a)!')
- *  - delay (OPCIONAL)          -> Velocidade da animação, padrão 0 (máxima)
- *  - textColor (OPCIONAL)      -> Cor do texto em HEX, padrão '#007BFF' (azul)
- *  - apikey (OBRIGATÓRIO)      -> Chave da Vex API
+ * ⚙️ PARÂMETROS:
+ *   - avatarUrl: string (obrigatório)
+ *     URL do avatar do usuário
  *
- * OBSERVAÇÃO:
- *  - O GIF gerado já contém animação pronta e o avatar do usuário.
- *  - O arquivo será salvo localmente com extensão .gif
+ *   - gifUrl: string (opcional)
+ *     URL de um GIF de fundo personalizado
+ *
+ *   - welcomeText: string (opcional)
+ *     Texto principal (padrão: "Welcome!")
+ *
+ *   - subText: string (opcional)
+ *     Texto secundário (padrão: "Bem-vindo(a)!")
+ *
+ *   - delay: number (opcional)
+ *     Velocidade da animação (padrão: 0)
+ *
+ *   - textColor: string (opcional)
+ *     Cor do texto em HEX (%23007BFF)
+ *
+ * 🔑 AUTENTICAÇÃO:
+ *   - apikey: string (obrigatório)
+ *     Chave de acesso da Vex API
+ *
+ * 📤 RESPOSTA:
+ *   Tipo: GIF (ANIMADO)
+ *   A API retorna diretamente o arquivo gerado (não há JSON).
+ *
+ * 💡 EXEMPLO DE USO:
  */
 
-// ==========================
-// CONFIGURAÇÃO
-// ==========================
-const apikey = '5c9c1d4b-900e-4892-8f2c-24e31a51a614';
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// Parâmetros do GIF
-const avatarUrl = 'https://i.pinimg.com/736x/cc/f6/89/ccf689f0c8dd0d85dc9ce74bfc7a86c7.jpg';
-const gifUrl = ''; // opcional
-const welcomeText = 'Welcome!'; // opcional
-const subText = 'Bem-vindo(a)!'; // opcional
-const delay = 0; // opcional
-const textColor = '#007BFF'; // opcional
+// recriando __dirname no ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// URL completa da API
-const urlAPI = `https://vexapi.com.br/api/canvas/welcomegif?apikey=${apikey}` +
-    `&avatarUrl=${encodeURIComponent(avatarUrl)}` +
-    `&gifUrl=${encodeURIComponent(gifUrl)}` +
-    `&welcomeText=${encodeURIComponent(welcomeText)}` +
-    `&subText=${encodeURIComponent(subText)}` +
-    `&delay=${encodeURIComponent(delay)}` +
-    `&textColor=${encodeURIComponent(textColor)}`;
-
-// Caminho para salvar o GIF
-const destinoLocal = path.join(__dirname, 'welcome.gif');
-
-/**
- * Função para baixar o GIF da API e salvar localmente
- *
- * @param {string} url - URL do GIF processado pela API
- * @param {string} destino - Caminho local do arquivo de saída
- */
 function baixarGIF(url, destino) {
     return new Promise((resolve, reject) => {
         https.get(url, (res) => {
             if (res.statusCode !== 200) {
-                return reject(new Error(`Falha ao baixar o GIF. Status Code: ${res.statusCode}`));
+                return reject(new Error(`Status Code: ${res.statusCode}`));
             }
 
             const file = fs.createWriteStream(destino);
@@ -72,21 +63,51 @@ function baixarGIF(url, destino) {
             file.on('error', (err) => {
                 fs.unlink(destino, () => reject(err));
             });
-        }).on('error', (err) => reject(err));
+        }).on('error', reject);
     });
 }
 
-// ==========================
-// EXECUÇÃO
-// ==========================
+const apikey = 'SUA-API-KEY';
+
+const params = {
+    avatarUrl: 'https://i.pinimg.com/736x/cc/f6/89/ccf689f0c8dd0d85dc9ce74bfc7a86c7.jpg',
+    gifUrl: '',
+    welcomeText: 'Welcome!',
+    subText: 'Bem-vindo(a)!',
+    delay: 0,
+    textColor: '#007BFF'
+};
+
+const queryString = Object.entries(params)
+    .filter(([_, value]) => value !== '' && value !== undefined)
+    .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+    .join('&');
+
+const url = `https://vexapi.com.br/api/canvas/welcomegif?apikey=${apikey}&${queryString}`;
+
+const caminho = path.join(__dirname, 'welcome.gif');
+
 (async () => {
     try {
         console.log('🔹 Gerando GIF de boas-vindas...');
-
-        await baixarGIF(urlAPI, destinoLocal);
-
-        console.log('✅ GIF gerado com sucesso em:', destinoLocal);
+        await baixarGIF(url, caminho);
+        console.log('✅ GIF salvo em:', caminho);
     } catch (err) {
-        console.error('❌ Erro ao gerar GIF de boas-vindas:', err.message);
+        console.error('❌ Erro:', err.message);
     }
 })();
+
+/**
+ * 🚀 OBSERVAÇÕES:
+ *   - O GIF é retornado diretamente pela API
+ *   - Não há estrutura JSON de resposta
+ *   - Cores HEX devem ser URL encoded (%23 ao invés de #)
+ *   - Parâmetros opcionais possuem valores padrão
+ *
+ * 👨‍💻 CRIADO POR:
+ *   Vex Tech Solutions
+ *
+ * 📅 ATUALIZADO EM:
+ *   25/04/2026
+ * ============================================
+ */

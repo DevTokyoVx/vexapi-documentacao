@@ -1,76 +1,90 @@
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
-
 /**
  * ============================================
- * SCRIPT PARA GERAR IMAGEM "BRAT" USANDO VEX API
+ * 📡 VEX API - CANVAS / BRAT
  * ============================================
  *
- * Endpoint: /api/canvas/brat
- * 
- * FUNCIONAMENTO:
- *  - Coloca o texto fornecido no estilo "brat" em uma imagem de canvas.
- *  - Parâmetro obrigatório:
- *      query -> texto que aparecerá na imagem
- *  - A API **retorna a imagem pronta**, então não há JSON.
- *  - A imagem será salva localmente no diretório atual com o nome 'brat.png'.
+ * 🔗 ENDPOINT:
+ *   /api/canvas/brat
  *
- * EXEMPLO DE USO:
- *  - query: "Vex API"
- *  - URL da API:
- *    https://vexapi.com.br/api/canvas/brat?apikey=API_KEY&query=Vex%20API
+ * 🧠 DESCRIÇÃO:
+ *   Gera uma imagem estilo "Brat", semelhante ao site bratgenerator,
+ *   utilizando o texto fornecido e opções de personalização.
+ *
+ * ⚙️ PARÂMETROS:
+ *   - query: string (obrigatório)
+ *     Texto que será exibido na imagem
+ *
+ *   - bg: string (opcional)
+ *     Cor de fundo em HEX (%238ACE00) ou nome (ex: purple)
+ *
+ *   - text_color: string (opcional)
+ *     Cor do texto (ex: black, white, %23000000)
+ *
+ *   - blur: number (opcional)
+ *     Intensidade do desfoque no texto (padrão: 2)
+ *
+ * 🔑 AUTENTICAÇÃO:
+ *   - apikey: string (obrigatório)
+ *     Chave de acesso da Vex API
+ *
+ * 📤 RESPOSTA:
+ *   Tipo: IMAGEM (PNG)
+ *   A API retorna diretamente a imagem gerada (não há JSON).
+ *
+ * 💡 EXEMPLO DE USO:
  */
 
-/**
- * Função que baixa uma imagem a partir de uma URL e salva no diretório local
- *
- * @param {string} url - URL da imagem gerada pela API
- * @param {string} destino - Caminho local do arquivo (ex: './brat.png')
- * @returns {Promise<void>}
- */
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 function baixarImagem(url, destino) {
     return new Promise((resolve, reject) => {
         https.get(url, (res) => {
             if (res.statusCode !== 200) {
-                return reject(new Error(`Falha ao baixar imagem. Status Code: ${res.statusCode}`));
+                return reject(new Error(`Status Code: ${res.statusCode}`));
             }
 
             const file = fs.createWriteStream(destino);
             res.pipe(file);
 
             file.on('finish', () => file.close(resolve));
-
             file.on('error', (err) => {
                 fs.unlink(destino, () => reject(err));
             });
-        }).on('error', (err) => reject(err));
+        }).on('error', reject);
     });
 }
 
-// ==========================
-// CONFIGURAÇÃO
-// ==========================
-const apikey = '5c9c1d4b-900e-4892-8f2c-24e31a51a614'; // Sua chave Vex API
-const query = 'Vex API'; // Texto que vai aparecer na imagem
+const apikey = 'SUA-API-KEY';
+const query = 'Vex API';
 
-// URL completa da API Brat
-const urlAPI = `https://vexapi.com.br/api/canvas/brat?apikey=${apikey}&query=${encodeURIComponent(query)}`;
+const url = `https://vexapi.com.br/api/canvas/brat?apikey=${apikey}&query=${encodeURIComponent(query)}`;
+const caminho = path.join(__dirname, 'brat.png');
 
-// Caminho para salvar a imagem
-const destinoLocal = path.join(__dirname, 'brat.png');
-
-// ==========================
-// EXECUÇÃO
-// ==========================
 (async () => {
     try {
-        console.log(`🔹 Gerando imagem "Brat" com o texto: "${query}"...`);
-
-        await baixarImagem(urlAPI, destinoLocal);
-
-        console.log('✅ Imagem "Brat" salva com sucesso em:', destinoLocal);
+        await baixarImagem(url, caminho);
+        console.log('✅ Imagem salva em:', caminho);
     } catch (err) {
-        console.error('❌ Erro ao gerar imagem "Brat":', err.message);
+        console.error('❌ Erro:', err.message);
     }
 })();
+
+/**
+ * 🚀 OBSERVAÇÕES:
+ *   - A imagem é retornada diretamente pela API
+ *   - Não há estrutura JSON de resposta
+ *   - Parâmetros de cor devem ser URL encoded (%23 para #)
+ *
+ * 👨‍💻 CRIADO POR:
+ *   Vex Tech Solutions
+ *
+ * 📅 ATUALIZADO EM:
+ *   25/04/2026
+ * ============================================
+ */

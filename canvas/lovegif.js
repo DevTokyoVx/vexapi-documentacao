@@ -1,60 +1,62 @@
 /**
- * Script Node.js para gerar GIF de amor usando a nova Vex API
+ * ============================================
+ * 📡 VEX API - CANVAS / LOVEGIF
+ * ============================================
  *
- * Parâmetros oficiais da nova rota:
- *  - user1: URL da imagem do primeiro usuário (opcional)
- *  - user2: URL da imagem do segundo usuário (opcional)
- *  - bgGif: URL de GIF de fundo (opcional)
- *  - percent: Valor entre 0–100 (opcional, padrão 100)
- *  - frames: Quantidade de frames (opcional, padrão 40)
- *  - color: Cor HEX (opcional)
- *  - textColor: Cor do texto HEX (opcional)
- *  - apikey: obrigatório
+ * 🔗 ENDPOINT:
+ *   /api/canvas/lovegif
+ *
+ * 🧠 DESCRIÇÃO:
+ *   Gera um GIF animado de amor entre dois usuários,
+ *   com personalização de cores, animação e plano de fundo.
+ *
+ * ⚙️ PARÂMETROS:
+ *   - user1: string (opcional)
+ *     URL da imagem do primeiro usuário
+ *
+ *   - user2: string (opcional)
+ *     URL da imagem do segundo usuário
+ *
+ *   - bgGif: string (opcional)
+ *     URL de um GIF de fundo personalizado
+ *
+ *   - percent: number (opcional)
+ *     Percentual de amor (0–100) (padrão: 100)
+ *
+ *   - frames: number (opcional)
+ *     Quantidade de frames da animação (padrão: 40)
+ *
+ *   - color: string (opcional)
+ *     Cor principal em HEX (%23ff0059)
+ *
+ *   - textColor: string (opcional)
+ *     Cor do texto em HEX (%23ffffff)
+ *
+ * 🔑 AUTENTICAÇÃO:
+ *   - apikey: string (obrigatório)
+ *     Chave de acesso da Vex API
+ *
+ * 📤 RESPOSTA:
+ *   Tipo: GIF (ANIMADO)
+ *   A API retorna diretamente o arquivo gerado (não há JSON).
+ *
+ * 💡 EXEMPLO DE USO:
  */
 
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// ==========================
-// CONFIGURAÇÃO
-// ==========================
-const apikey = '23521681-cab7-4918-be66-80e1e632f035';
+// recriando __dirname no ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Parâmetros da rota lovegif (API nova)
-const params = {
-    user1: 'https://i.pinimg.com/736x/cc/f6/89/ccf689f0c8dd0d85dc9ce74bfc7a86c7.jpg', // opcional
-    user2: 'https://i.pinimg.com/736x/cc/f6/89/ccf689f0c8dd0d85dc9ce74bfc7a86c7.jpg', // opcional
-    bgGif: '',        // opcional
-    percent: 100,     // opcional
-    frames: 40,       // opcional
-    color: '#ff0059', // opcional
-    textColor: '#ffffff' // opcional
-};
-
-// ==========================
-// MONTANDO A URL
-// ==========================
-const queryString = Object.entries(params)
-    .filter(([_, value]) => value !== '' && value !== undefined)
-    .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
-    .join('&');
-
-const urlAPI = `https://vexapi.com.br/api/canvas/lovegif?apikey=${apikey}&${queryString}`;
-
-// ==========================
-// CAMINHO DE SAÍDA DO GIF
-// ==========================
-const destinoLocal = path.join(__dirname, 'love.gif');
-
-// ==========================
-// FUNÇÃO PARA BAIXAR O GIF
-// ==========================
 function baixarGIF(url, destino) {
     return new Promise((resolve, reject) => {
         https.get(url, (res) => {
             if (res.statusCode !== 200) {
-                return reject(new Error(`Falha ao baixar o GIF. Status Code: ${res.statusCode}`));
+                return reject(new Error(`Status Code: ${res.statusCode}`));
             }
 
             const file = fs.createWriteStream(destino);
@@ -64,19 +66,52 @@ function baixarGIF(url, destino) {
             file.on('error', (err) => {
                 fs.unlink(destino, () => reject(err));
             });
-        }).on('error', (err) => reject(err));
+        }).on('error', reject);
     });
 }
 
-// ==========================
-// EXECUÇÃO
-// ==========================
+const apikey = 'SUA-API-KEY';
+
+const params = {
+    user1: 'https://i.pinimg.com/736x/cc/f6/89/ccf689f0c8dd0d85dc9ce74bfc7a86c7.jpg',
+    user2: 'https://i.pinimg.com/736x/cc/f6/89/ccf689f0c8dd0d85dc9ce74bfc7a86c7.jpg',
+    bgGif: '',
+    percent: 100,
+    frames: 40,
+    color: '#ff0059',
+    textColor: '#ffffff'
+};
+
+const queryString = Object.entries(params)
+    .filter(([_, value]) => value !== '' && value !== undefined)
+    .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+    .join('&');
+
+const url = `https://vexapi.com.br/api/canvas/lovegif?apikey=${apikey}&${queryString}`;
+
+const caminho = path.join(__dirname, 'love.gif');
+
 (async () => {
     try {
         console.log('🔹 Gerando GIF de amor...');
-        await baixarGIF(urlAPI, destinoLocal);
-        console.log('✅ GIF gerado com sucesso em:', destinoLocal);
+        await baixarGIF(url, caminho);
+        console.log('✅ GIF salvo em:', caminho);
     } catch (err) {
-        console.error('❌ Erro ao gerar GIF de amor:', err.message);
+        console.error('❌ Erro:', err.message);
     }
 })();
+
+/**
+ * 🚀 OBSERVAÇÕES:
+ *   - O GIF é retornado diretamente pela API
+ *   - Não há estrutura JSON de resposta
+ *   - Cores HEX devem ser URL encoded (%23 ao invés de #)
+ *   - Parâmetros opcionais possuem valores padrão
+ *
+ * 👨‍💻 CRIADO POR:
+ *   Vex Tech Solutions
+ *
+ * 📅 ATUALIZADO EM:
+ *   25/04/2026
+ * ============================================
+ */

@@ -1,75 +1,92 @@
-const https = require('https');
-const fs = require('fs');
-const path = require('path');
-
 /**
  * ============================================
- * SCRIPT PARA GERAR GIF "BRAT" USANDO VEX API
+ * 📡 VEX API - CANVAS / BRATSTICKER
  * ============================================
  *
- * Endpoint: /api/canvas/bratvideo
- * 
- * FUNCIONAMENTO:
- *  - Coloca o texto fornecido no estilo "brat" em um vídeo/GIF animado.
- *  - Parâmetro obrigatório:
- *      query -> texto que aparecerá no GIF
- *  - A API retorna o arquivo pronto, que pode ser salvo como GIF.
+ * 🔗 ENDPOINT:
+ *   /api/canvas/bratsticker
  *
- * EXEMPLO DE USO:
- *  - query: "Vex API"
- *  - URL da API:
- *    https://vexapi.com.br/api/canvas/bratvideo?apikey=API_KEY&query=Vex%20API
+ * 🧠 DESCRIÇÃO:
+ *   Gera stickers animados (WebP) no estilo "Brat", com revelação
+ *   progressiva de texto sincronizada com BPM.
+ *
+ * ⚙️ PARÂMETROS:
+ *   - query: string (obrigatório)
+ *     Texto que será revelado palavra por palavra no sticker
+ *
+ *   - bg: string (opcional)
+ *     Cor de fundo em HEX (%238ACE00) ou nome (ex: purple)
+ *
+ *   - text_color: string (opcional)
+ *     Cor do texto (ex: black, white, %23000000)
+ *
+ *   - bpm: number (opcional)
+ *     Velocidade da animação em batidas por minuto (padrão: 120)
+ *
+ * 🔑 AUTENTICAÇÃO:
+ *   - apikey: string (obrigatório)
+ *     Chave de acesso da Vex API
+ *
+ * 📤 RESPOSTA:
+ *   Tipo: WEBP (ANIMADO)
+ *   A API retorna diretamente o sticker gerado (não há JSON).
+ *
+ * 💡 EXEMPLO DE USO:
  */
 
-/**
- * Função que baixa o GIF a partir de uma URL e salva no diretório local
- *
- * @param {string} url - URL do GIF gerado pela API
- * @param {string} destino - Caminho local do arquivo (ex: './bratvideo.gif')
- * @returns {Promise<void>}
- */
-function baixarGIF(url, destino) {
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+// recriando __dirname no ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+function baixarSticker(url, destino) {
     return new Promise((resolve, reject) => {
         https.get(url, (res) => {
             if (res.statusCode !== 200) {
-                return reject(new Error(`Falha ao baixar GIF. Status Code: ${res.statusCode}`));
+                return reject(new Error(`Status Code: ${res.statusCode}`));
             }
 
             const file = fs.createWriteStream(destino);
             res.pipe(file);
 
             file.on('finish', () => file.close(resolve));
-
             file.on('error', (err) => {
                 fs.unlink(destino, () => reject(err));
             });
-        }).on('error', (err) => reject(err));
+        }).on('error', reject);
     });
 }
 
-// ==========================
-// CONFIGURAÇÃO
-// ==========================
-const apikey = '5c9c1d4b-900e-4892-8f2c-24e31a51a614'; // Sua chave Vex API
-const query = 'Vex API'; // Texto que vai aparecer no GIF
+const apikey = 'SUA-API-KEY';
+const query = 'Vex API para desenvolvedores';
 
-// URL completa da API BratVideo
-const urlAPI = `https://vexapi.com.br/api/canvas/bratvideo?apikey=${apikey}&query=${encodeURIComponent(query)}`;
+const url = `https://vexapi.com.br/api/canvas/bratvideo?apikey=${apikey}&query=${encodeURIComponent(query)}`;
+const caminho = path.join(__dirname, 'bratsticker.webp');
 
-// Caminho para salvar o GIF
-const destinoLocal = path.join(__dirname, 'bratvideo.gif');
-
-// ==========================
-// EXECUÇÃO
-// ==========================
 (async () => {
     try {
-        console.log(`🔹 Gerando GIF "Brat" com o texto: "${query}"...`);
-
-        await baixarGIF(urlAPI, destinoLocal);
-
-        console.log('✅ GIF "Brat" salvo com sucesso em:', destinoLocal);
+        await baixarSticker(url, caminho);
+        console.log('✅ Sticker salvo em:', caminho);
     } catch (err) {
-        console.error('❌ Erro ao gerar GIF "Brat":', err.message);
+        console.error('❌ Erro:', err.message);
     }
 })();
+
+/**
+ * 🚀 OBSERVAÇÕES:
+ *   - O arquivo é retornado diretamente pela API
+ *   - Não há estrutura JSON de resposta
+ *   - Pode ser usado como sticker em apps compatíveis com WebP animado
+ *   - Parâmetros de cor devem ser URL encoded (%23 para #)
+ *
+ * 👨‍💻 CRIADO POR:
+ *   Vex Tech Solutions
+ *
+ * 📅 ATUALIZADO EM:
+ *   25/04/2026
+ * ============================================
+ */
