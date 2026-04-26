@@ -6,6 +6,7 @@
 
 ---
 
+
 ## 🌐 Nossas redes sociais
 
 <p align="left">
@@ -42,6 +43,18 @@ Aqui você vai encontrar:
 - Códigos que podem ser copiados e usados imediatamente  
 - Demonstrações de geração de imagens, GIFs e outras funções da API  
 - Material pensado para facilitar a vida de quem está começando **ou** já desenvolve profissionalmente  
+
+---
+
+## 🗺️ Guia de Navegação
+
+Para uma exploração detalhada de cada recurso, acesse o nosso **[Mapeamento do Sistema](./MAPA_SISTEMA.md)** ou explore os módulos abaixo:
+
+### 🧩 Módulos Técnicos
+- **🎨 [Canvas](./canvas/README.md)**: Geração de imagens, cartões de boas-vindas e efeitos visuais.
+- **📥 [Downloads](./downloads/README.md)**: Coleta de mídias do TikTok, YouTube, Spotify e muito mais.
+- **🖼️ [Logos](./logos/README.md)**: Criação de identidades visuais e combinações de emojis.
+- **🔍 [Pesquisas](./pesquisas/README.md)**: Consultas de dados, letras de músicas e buscapé local.
 
 ---
 
