@@ -1,15 +1,47 @@
-const https = require('https');
-
 /**
- * Função que faz a requisição para a Vex API e extrai o JSON retornado
+ * ============================================
+ * 📥 VEX API - DOWNLOAD / KWAI
+ * ============================================
  *
- * Observações importantes sobre a Vex API Kwai Download:
- *  - Pode retornar JSON puro ou vir dentro de um HTML (<pre id="json">)
- * Esta função tenta extrair o JSON corretamente e retorna sempre um objeto JS.
+ * 🔗 ENDPOINT:
+ *   /api/downloads/kwai
  *
- * @param {string} url - URL completa da API, incluindo API key e link do Kwai
- * @returns {Promise<Object>} - Retorna o objeto JSON da API
+ * 🧠 DESCRIÇÃO:
+ *   Faz o download de vídeos do Kwai a partir de uma URL,
+ *   retornando informações completas e link direto da mídia.
+ *
+ * ⚙️ PARÂMETROS:
+ *   - query: string (obrigatório)
+ *     URL do vídeo do Kwai
+ *
+ * 🔑 AUTENTICAÇÃO:
+ *   - apikey: string (obrigatório)
+ *     Chave de acesso da Vex API
+ *
+ * 📥 FUNCIONAMENTO DO SCRIPT:
+ *   - Envia a URL para a API
+ *   - Recebe a resposta em JSON
+ *   - (Opcional) Loga tudo em modo debug
+ *
+ * 📤 SAÍDA:
+ *   Dados formatados no console
+ *
+ * 🚀 OBSERVAÇÕES:
+ *   - DEBUG pode ser ativado para ver resposta completa
+ *
+ * 👨‍💻 CRIADO POR:
+ *   Vex Tech Solutions
+ *
+ * 📅 ATUALIZADO EM:
+ *   25/04/2026
+ * ============================================
  */
+
+import https from 'https';
+
+// 🔥 CONTROLE DE DEBUG (mude pra true quando quiser ver tudo)
+const DEBUG = false;
+
 function buscarVexAPI(url) {
     return new Promise((resolve, reject) => {
         https.get(url, (res) => {
@@ -19,25 +51,7 @@ function buscarVexAPI(url) {
 
             res.on('end', () => {
                 try {
-                    // JSON puro
-                    if (res.headers['content-type']?.includes('application/json')) {
-                        return resolve(JSON.parse(data));
-                    }
-
-                    // JSON dentro de HTML (<pre id="json">)
-                    if (res.headers['content-type']?.includes('text/html')) {
-                        const match = data.match(/<pre[^>]*id=["']json["'][^>]*>([\s\S]*?)<\/pre>/i);
-                        if (match) {
-                            return resolve(JSON.parse(match[1].trim()));
-                        }
-
-                        // fallback
-                        return resolve(JSON.parse(data));
-                    }
-
-                    // tentativa final
                     return resolve(JSON.parse(data));
-
                 } catch {
                     return reject(new Error('Resposta não contém JSON válido'));
                 }
@@ -51,12 +65,9 @@ function buscarVexAPI(url) {
 // CONFIGURAÇÃO
 // ==========================
 
-// API KEY atualizada
-const apikey = '23521681-cab7-4918-be66-80e1e632f035';
-
+const apikey = 'SUA-API-KEY';
 const kwaiUrl = 'https://k.kwai.com/p/x794OPCM';
 
-// URL completa do endpoint Kwai Download
 const url = `https://vexapi.com.br/api/downloads/kwai?apikey=${apikey}&query=${encodeURIComponent(kwaiUrl)}`;
 
 // ==========================
@@ -64,37 +75,47 @@ const url = `https://vexapi.com.br/api/downloads/kwai?apikey=${apikey}&query=${e
 // ==========================
 (async () => {
     try {
-        console.log('🚀 Executando busca na VexAPI...');
+        console.log('🚀 Executando busca na Vex API...\n');
 
         const dados = await buscarVexAPI(url);
 
-        console.log('🔹 Chaves do objeto JSON retornado:', Object.keys(dados));
+        // 🔥 DEBUG MODE
+        if (DEBUG) {
+            console.log('📦 RESPOSTA COMPLETA DA API:\n');
+            console.log(JSON.stringify(dados, null, 2));
+            console.log('\n🔹 Chaves do objeto:', Object.keys(dados));
+        }
 
         if (dados?.resposta) {
             const video = dados.resposta;
 
             console.log('\n==============================');
-            console.log('✅ Resultado do Kwai Download:');
+            console.log('✅ RESULTADO');
             console.log('==============================');
-            console.log('Título: ', video.titulo);
-            console.log('Descrição: ', video.descricao);
-            console.log('Thumbnail: ', video.thumbnail);
-            console.log('Publicado em: ', video.publicado);
-            console.log('Vídeo: ', video.video);
-            console.log('Duração: ', video.duracao);
+
+            console.log('Título:', video.titulo);
+            console.log('Descrição:', video.descricao);
+            console.log('Thumbnail:', video.thumbnail);
+            console.log('Publicado em:', video.publicado);
+            console.log('Vídeo:', video.video);
+            console.log('Duração:', video.duracao);
 
             if (video.criador) {
-                console.log('\n👤 Criador:');
-                console.log('Nome: ', video.criador.nome);
-                console.log('Usuário: ', video.criador.usuario);
-                console.log('Perfil: ', video.criador.perfil);
+                console.log('\n👤 CRIADOR:');
+                console.log('Nome:', video.criador.nome);
+                console.log('Usuário:', video.criador.usuario);
+                console.log('Perfil:', video.criador.perfil);
             }
 
         } else {
-            console.log('⚠️ Nenhum resultado encontrado.');
+            console.log('\n⚠️ A API não retornou o campo "resposta".');
+
+            if (DEBUG) {
+                console.log('📄 Resposta bruta:', dados);
+            }
         }
 
     } catch (err) {
-        console.error('❌ Erro ao buscar na API:', err.message);
+        console.error('\n❌ ERRO:', err.message);
     }
 })();

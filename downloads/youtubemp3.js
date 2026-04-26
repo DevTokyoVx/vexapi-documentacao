@@ -1,15 +1,44 @@
-const https = require('https');
-
 /**
- * Função que faz a requisição para a Vex API e extrai o JSON retornado
+ * ============================================
+ * 📥 VEX API - DOWNLOAD / YOUTUBE MP3
+ * ============================================
  *
- * Observações importantes sobre a Vex API YouTube MP4:
- *  - Sempre retorna JSON dentro de um HTML, dentro da tag <pre id="json">
- * Esta função tenta extrair o JSON corretamente e retorna sempre um objeto JS.
+ * 🔗 ENDPOINT:
+ *   /api/downloads/youtubemp3
  *
- * @param {string} url - URL completa da API, incluindo API key e link do YouTube
- * @returns {Promise<Object>} - Retorna o objeto JSON da API
+ * 🧠 DESCRIÇÃO:
+ *   Converte vídeos do YouTube para MP3 e retorna
+ *   o link direto para download do áudio.
+ *
+ * ⚙️ PARÂMETROS:
+ *   - query: string (obrigatório)
+ *     URL do vídeo do YouTube
+ *
+ * 🔑 AUTENTICAÇÃO:
+ *   - apikey: string (obrigatório)
+ *     Chave de acesso da Vex API
+ *
+ * 📤 RESPOSTA:
+ *   Tipo: JSON
+ *
+ * 🚀 OBSERVAÇÕES:
+ *   - A API retorna JSON puro
+ *   - Link direto vem em `dlurl`
+ *   - DEBUG pode ser ativado
+ *
+ * 👨‍💻 CRIADO POR:
+ *   Vex Tech Solutions
+ *
+ * 📅 ATUALIZADO EM:
+ *   25/04/2026
+ * ============================================
  */
+
+import https from 'https';
+
+// 🔥 DEBUG (true = mostra tudo)
+const DEBUG = false;
+
 function buscarVexAPI(url) {
     return new Promise((resolve, reject) => {
         https.get(url, (res) => {
@@ -19,31 +48,13 @@ function buscarVexAPI(url) {
 
             res.on('end', () => {
                 try {
-                    // JSON puro
-                    if (res.headers['content-type']?.includes('application/json')) {
-                        return resolve(JSON.parse(data));
-                    }
-
-                    // JSON dentro de HTML (<pre id="json">)
-                    if (res.headers['content-type']?.includes('text/html')) {
-                        const match = data.match(/<pre[^>]*id=["']json["'][^>]*>([\s\S]*?)<\/pre>/i);
-                        if (match) return resolve(JSON.parse(match[1].trim()));
-
-                        // Tenta parsear direto
-                        try {
-                            return resolve(JSON.parse(data));
-                        } catch {
-                            return reject(new Error('HTML sem JSON detectado'));
-                        }
-                    }
-
-                    reject(new Error('Tipo de resposta desconhecido: ' + res.headers['content-type']));
-                } catch (err) {
-                    reject(err);
+                    resolve(JSON.parse(data));
+                } catch {
+                    reject(new Error('Resposta não contém JSON válido'));
                 }
             });
 
-        }).on('error', err => reject(err));
+        }).on('error', reject);
     });
 }
 
@@ -51,10 +62,9 @@ function buscarVexAPI(url) {
 // CONFIGURAÇÃO
 // ==========================
 
-const apikey = '5c9c1d4b-900e-4892-8f2c-24e31a51a614';
-const youtubeUrl = 'https://youtu.be/uVV7ArAqCzc?si=8P3qXtMlD2wZ8UcU';
+const apikey = 'SUA-API-KEY';
+const youtubeUrl = 'https://youtu.be/uVV7ArAqCzc';
 
-// URL completa do endpoint YouTube MP4
 const url = `https://vexapi.com.br/api/downloads/youtubemp3?apikey=${apikey}&query=${encodeURIComponent(youtubeUrl)}`;
 
 // ==========================
@@ -62,23 +72,35 @@ const url = `https://vexapi.com.br/api/downloads/youtubemp3?apikey=${apikey}&que
 // ==========================
 (async () => {
     try {
-        // Faz a requisição e extrai o JSON da API
+        console.log('🚀 Buscando áudio do YouTube...\n');
+
         const dados = await buscarVexAPI(url);
 
-        // Log das chaves do objeto retornado
-        console.log('🔹 Chaves do objeto JSON retornado:', Object.keys(dados));
+        // 🔥 DEBUG
+        if (DEBUG) {
+            console.log('📦 RESPOSTA COMPLETA:\n');
+            console.log(JSON.stringify(dados, null, 2));
+        }
 
         if (dados?.resposta) {
             const video = dados.resposta;
 
-            console.log('✅ Resultado do YouTube MP3 Download:');
-            console.log('Título: ', video.title);
-            console.log('Link de download direto: ', video.dlurl);
+            console.log('==============================');
+            console.log('🎵 RESULTADO');
+            console.log('==============================');
+
+            console.log('Título:', video.title);
+            console.log('Download:', video.dlurl);
+
         } else {
             console.log('⚠️ Nenhum resultado encontrado.');
+
+            if (DEBUG) {
+                console.log(dados);
+            }
         }
 
     } catch (err) {
-        console.error('❌ Erro ao buscar na API:', err.message);
+        console.error('❌ ERRO:', err.message);
     }
 })();

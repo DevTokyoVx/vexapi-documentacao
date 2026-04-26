@@ -1,42 +1,106 @@
 # 📥 Módulo Downloads: Vex API
 
-O módulo **Downloads** da Vex API fornece endpoints otimizados para a coleta de mídias de diversas redes sociais e plataformas de streaming.
+O módulo **Downloads** da Vex API fornece endpoints otimizados para extração de mídias de diversas plataformas, retornando links diretos e metadados estruturados.
 
 ---
 
-## 🚀 Plataformas Suportadas
+## 🚀 Endpoints Disponíveis
 
-| Serviço | Endpoint | Descrição |
+| Nome | Rota | Descrição |
 | :--- | :--- | :--- |
-| **TikTok** | `/api/download/tiktok` | Baixa vídeos do TikTok sem marca d'água. |
-| **YouTube MP3** | `/api/download/youtubemp3` | Extrai o áudio de vídeos do YouTube. |
-| **YouTube MP4** | `/api/download/youtubemp4` | Baixa vídeos do YouTube em alta qualidade. |
-| **Spotify** | `/api/download/spotify` | Coleta faixas e metadados do Spotify. |
-| **Instagram** | `/api/download/instagram` | Baixa Reels, Fotos e Carrosséis (Consulte pesquisas/instagram.js). |
-| **Kwai** | `/api/download/kwai` | Baixa vídeos da plataforma Kwai. |
-| **Facebook** | `/api/download/facebook` | Faz download de vídeos públicos do Facebook. |
+| **YouTube MP3** | `/api/downloads/youtubemp3` | Extrai áudio de vídeos do YouTube. |
+| **YouTube MP4** | `/api/downloads/youtubemp4` | Baixa vídeos do YouTube. |
+| **Spotify** | `/api/downloads/spotify` | Obtém dados e link de download de músicas. |
+| **Facebook** | `/api/downloads/facebook` | Baixa vídeos públicos do Facebook. |
+| **Kwai** | `/api/downloads/kwai` | Baixa vídeos da plataforma Kwai. |
+| **Pinterest IMG** | `/api/downloads/pinterestimg` | Baixa imagens do Pinterest. |
+| **Pinterest MP4** | `/api/downloads/pinterestmp4` | Baixa vídeos do Pinterest. |
 
 ---
 
-## 🛠️ Exemplo de Uso: TikTok Downloader
+## 🟦 Parâmetros por Endpoint
 
-### Parâmetros (QueryParams)
-- `apikey` (Required): Sua chave de acesso.
-- `url` (Required): Link do vídeo que deseja baixar.
+### 📌 /api/downloads/youtubemp3
 
-### Código em Node.js (Exemplo)
-```javascript
-const urlAPI = `https://vexapi.com.br/api/download/tiktok?apikey=SUA_CHAVE&url=LINK_DO_VIDEO`;
-// Consulte o arquivo tiktok.js nesta pasta para o script completo de integração.
-```
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso |
+| query | string | 🟢 | Link do vídeo do YouTube |
 
 ---
 
-## 📁 Estrutura de Arquivos
-- [tiktok.js](./tiktok.js): Script para download de vídeos sem marca d'água.
-- [youtubemp3.js](./youtubemp3.js): Exemplo de conversão de vídeo para áudio.
-- [spotify.js](./spotify.js): Coleta de metadados e download de faixas.
-- [kwai.js](./kwai.js): Integração com a plataforma Kwai.
+### 📌 /api/downloads/youtubemp4
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso |
+| query | string | 🟢 | Link do vídeo do YouTube |
 
 ---
-_Documentação gerada por Vex API Zenith — Precisão e Design._
+
+### 📌 /api/downloads/spotify
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso |
+| query | string | 🟢 | Link da música no Spotify |
+
+---
+
+### 📌 /api/downloads/facebook
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso |
+| query | string | 🟢 | Link do vídeo do Facebook |
+
+---
+
+### 📌 /api/downloads/kwai
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso |
+| query | string | 🟢 | Link do vídeo do Kwai |
+
+---
+
+### 📌 /api/downloads/pinterestimg
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso |
+| query | string | 🟢 | Link do pin do Pinterest |
+
+---
+
+### 📌 /api/downloads/pinterestmp4
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso |
+| query | string | 🟢 | Link do vídeo do Pinterest |
+
+---
+
+## 📁 Scripts Disponíveis
+
+Cada endpoint possui um script pronto para uso:
+
+- [facebook.js](./facebook.js)  
+- [kwai.js](./kwai.js)  
+- [spotify.js](./spotify.js)  
+- [youtubemp3.js](./youtubemp3.js)  
+- [youtubemp4.js](./youtubemp4.js)  
+- [pinterestimg.js](./pinterestIMG.js)  
+- [pinterestmp4.js](./pinterestVIDEO.js)  
+
+---
+
+Todos os arquivos já incluem:
+- ✔️ Código completo  
+- ✔️ Integração com a API  
+- ✔️ Logs detalhados para debug  
+- ✔️ Exemplo funcional pronto para execução  
+
+---

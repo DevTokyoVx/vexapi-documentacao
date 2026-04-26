@@ -1,18 +1,18 @@
 /**
  * ============================================
- * 📥 VEX API - DOWNLOAD / SPOTIFY
+ * 📥 VEX API - DOWNLOAD / PINTEREST IMG
  * ============================================
  *
  * 🔗 ENDPOINT:
- *   /api/downloads/spotify
+ *   /api/downloads/pinterestimg
  *
  * 🧠 DESCRIÇÃO:
- *   Obtém informações detalhadas de músicas do Spotify
- *   e link direto para download em MP3.
+ *   Baixa imagens do Pinterest a partir de um link
+ *   e retorna os links diretos das mídias.
  *
  * ⚙️ PARÂMETROS:
  *   - query: string (obrigatório)
- *     URL da música no Spotify
+ *     URL do pin do Pinterest
  *
  * 🔑 AUTENTICAÇÃO:
  *   - apikey: string (obrigatório)
@@ -22,8 +22,8 @@
  *   Tipo: JSON
  *
  * 🚀 OBSERVAÇÕES:
- *   - A API retorna dados estruturados em `resposta.data`
- *   - Link de download vem em `resposta.download`
+ *   - As mídias vêm em `medias[]`
+ *   - Pode retornar múltiplas imagens
  *   - DEBUG pode ser ativado
  *
  * 👨‍💻 CRIADO POR:
@@ -63,16 +63,16 @@ function buscarVexAPI(url) {
 // ==========================
 
 const apikey = 'SUA-API-KEY';
-const spotifyUrl = 'https://open.spotify.com/track/0mscBkMFduxGFsFEhTv7du';
+const pinterestUrl = 'https://www.pinterest.com/pin/24277285503872262/';
 
-const url = `https://vexapi.com.br/api/downloads/spotify?apikey=${apikey}&query=${encodeURIComponent(spotifyUrl)}`;
+const url = `https://vexapi.com.br/api/downloads/pinterestimg?apikey=${apikey}&query=${encodeURIComponent(pinterestUrl)}`;
 
 // ==========================
 // EXECUÇÃO
 // ==========================
 (async () => {
     try {
-        console.log('🚀 Buscando dados do Spotify...\n');
+        console.log('🚀 Buscando imagens do Pinterest...\n');
 
         const dados = await buscarVexAPI(url);
 
@@ -82,29 +82,20 @@ const url = `https://vexapi.com.br/api/downloads/spotify?apikey=${apikey}&query=
             console.log(JSON.stringify(dados, null, 2));
         }
 
-        if (dados?.resposta?.data) {
-            const track = dados.resposta.data;
-            const download = dados.resposta.download;
-
-            const artista = track.artists?.map(a => a.name).join(', ');
-            const thumb = track.album?.images?.[0]?.url;
-
+        if (dados?.medias?.length) {
             console.log('==============================');
-            console.log('🎵 INFORMAÇÕES DA MÚSICA');
-            console.log('==============================');
+            console.log('🖼️ RESULTADO');
+            console.log('==============================\n');
 
-            console.log('Nome:', track.name);
-            console.log('Artista(s):', artista);
-            console.log('Duração (ms):', track.duration_ms);
-            console.log('Explícito:', track.explicit);
-            console.log('Thumbnail:', thumb);
-            console.log('Spotify:', track.external_urls?.spotify);
-
-            console.log('\n📥 DOWNLOAD:');
-            console.log(download);
+            dados.medias.forEach((media, i) => {
+                console.log(`Imagem ${i + 1}:`);
+                console.log('Tipo:', media.type);
+                console.log('URL:', media.url);
+                console.log('-------------------------');
+            });
 
         } else {
-            console.log('⚠️ Nenhum resultado encontrado.');
+            console.log('⚠️ Nenhuma mídia encontrada.');
 
             if (DEBUG) {
                 console.log(dados);
