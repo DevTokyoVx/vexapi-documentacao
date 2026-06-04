@@ -40,8 +40,9 @@ Todos os exemplos estão organizados dentro da pasta central de **[Módulos](./m
 - **🖼️ [Logos](./modulos/logos/README.md)**: Identidades visuais e Emojimix.
 - **🔍 [Pesquisas](./modulos/pesquisas/README.md)**: Letras, SoundCloud, Filmes e Utils.
 - **📰 [News](./modulos/news/README.md)**: Notícias G1, UOL e portais brasileiros.
-- **🎮 [Quiz](./modulos/quiz/README.md)**: Trivia e perguntas dinâmicas.
+- **📃 [Quiz](./modulos/quiz/README.md)**: Trivia e perguntas dinâmicas.
 
+- **🎮 [Jogos](./modulos/games/README.md)**: Consulte estatísticas, perfis de jogadores, conquistas, cartas e diversas informações de jogos populares através da Vex API.
 ---
 
 # 📊 Dashboard & Recursos Sociais
