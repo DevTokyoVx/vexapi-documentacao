@@ -1,44 +1,52 @@
-🎮 Módulo Games: Vex API
+# 🎮 Módulo Games: Vex API
 
-O módulo Games da Vex API oferece acesso a informações detalhadas de jogadores, estatísticas, conquistas, coleções, badges e diversos outros dados relacionados a jogos populares.
-
----
-
-🚀 APIs Disponíveis
-
-Nome| Rota| Descrição
-Clash Royale| "/api/games/clashroyale"| Consulta informações de jogadores, cartas, badges, conquistas e banners do Clash Royale.
+O módulo **Games** da Vex API oferece acesso a informações detalhadas de jogadores, estatísticas, conquistas, coleções, badges e diversos outros dados relacionados a jogos populares.
 
 ---
 
-🏆 Clash Royale
+## 🚀 APIs Disponíveis
+
+| Nome | Rota | Descrição |
+| :--- | :--- | :--- |
+| **Clash Royale** | `/api/games/clashroyale` | Consulta informações de jogadores, cartas, badges, conquistas e banners do Clash Royale. |
+
+---
+
+## 🏰 Clash Royale
 
 Retorna informações de um jogador de Clash Royale conforme o tipo de consulta solicitado.
 
-Parâmetros
+---
 
-Parâmetro| Obrigatório| Descrição
-"query"| ✅| Tipo da consulta. Valores disponíveis: "geral", "cartas", "badges", "conquistas" ou "banner".
-"tag"| ✅| Tag do jogador do Clash Royale.
-"apikey"| ✅| Sua chave de autenticação individual para validar o acesso à API.
+### 📌 /api/games/clashroyale
 
-Tipos de Consulta
-
-Query| Descrição
-"geral"| Informações gerais do jogador.
-"cartas"| Coleção de cartas do jogador.
-"badges"| Badges conquistados pelo jogador.
-"conquistas"| Conquistas e marcos alcançados.
-"banner"| Informações do banner utilizado pelo jogador.
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso |
+| query | string | 🟢 | Tipo da consulta: `geral`, `cartas`, `badges`, `conquistas` ou `banner` |
+| tag | string | 🟢 | Tag do jogador do Clash Royale |
 
 ---
 
-📁 Scripts Disponíveis
+### 🔍 Tipos de Consulta (`query`)
 
-- "clashroyale.js" (./clashroyale.js)
+| Query | Descrição |
+| :--- | :--- |
+| `geral` | Informações gerais do jogador |
+| `cartas` | Coleção de cartas do jogador |
+| `badges` | Badges conquistados pelo jogador |
+| `conquistas` | Conquistas e marcos alcançados |
+| `banner` | Informações do banner utilizado pelo jogador |
+
+---
+
+## 📁 Scripts Disponíveis
+
+Cada endpoint possui um script pronto para uso em ambiente Node.js:
+
+- [clashroyale.js](./clashroyale.js)
 
 Todos os arquivos já incluem:
-
 - ✔️ Código completo em formato ESM
 - ✔️ Integração direta com a API
 - ✔️ Tratamento de resposta puramente JSON
@@ -48,7 +56,7 @@ Todos os arquivos já incluem:
 
 ---
 
-📚 Documentação
+## 📚 Documentação
 
 Cada API possui sua própria documentação contendo:
 
@@ -60,4 +68,4 @@ Cada API possui sua própria documentação contendo:
 
 ---
 
-Desenvolvido por Vex Tech Solutions.
+Desenvolvido por **Vex Tech Solutions**.
