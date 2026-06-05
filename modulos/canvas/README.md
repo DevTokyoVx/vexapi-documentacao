@@ -17,6 +17,9 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 | **Friend GIF** | `/api/canvas/friendgif` | Gera GIF de amizade personalizado. |
 | **Love GIF** | `/api/canvas/lovegif` | Gera GIF de amor personalizado. |
 | **Ping** | `/api/canvas/ping` | Gera painel de status estilo ping. |
+| **welcome4** | `/api/canvas/welcome4` | Gera card de bem-vindo (modelo 04). |
+| **welcomecyber** | `/api/canvas/welcomecyber` | Gera um card de boas-vindas no estilo Cyber/Futurista totalmente personalizável. |
+| **welcomesocial** | `/api/canvas/welcomesocial` | Gera um card social moderno com informações do usuário e servidor. |
 
 ---
 
@@ -149,6 +152,79 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 | width | number | ⚪ | Largura |
 | height | number | ⚪ | Altura |
 | neon | string | ⚪ | Cor destaque |
+
+---
+
+### 📌 /api/canvas/welcome4
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso da API |
+| query | string | 🟢 | Nome do usuário exibido no card |
+| imgperfil | string | ⚪ | URL da foto de perfil |
+| nomegrupo | string | ⚪ | Nome do grupo/servidor |
+| numerouser | string | ⚪ | Número do usuário |
+| darkMode | boolean | ⚪ | `true` = tema escuro, `false` = claro |
+| fundoPrincipal | string | ⚪ | Cor do fundo principal |
+| faixaEsquerda | string | ⚪ | Cor da faixa lateral esquerda |
+| textoPrincipal | string | ⚪ | Cor do nome do grupo |
+| textoBoasVindas | string | ⚪ | Cor do texto de boas-vindas |
+| linhasDecorativas | string | ⚪ | Cor das linhas decorativas |
+| fundoPilula | string | ⚪ | Fundo da caixa do membro |
+| textoPilula | string | ⚪ | Cor do texto do membro |
+| bordaPilula | string | ⚪ | Cor da borda da caixa do membro |
+| fundoCirculoAvatar | string | ⚪ | Cor do círculo do avatar |
+| texturaLinhas | string | ⚪ | Cor da textura de linhas |
+| corDourada | string | ⚪ | Cor dos detalhes/destaques dourados |
+---
+
+### 📌 /api/canvas/welcomecyber
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso da API |
+| query | string | 🟢 | Nome do usuário exibido no card cyber |
+| imgperfil | string | ⚪ | URL da foto de perfil |
+| nomegrupo | string | ⚪ | Nome do grupo/servidor |
+| numerouser | string | ⚪ | Número ou ID do usuário |
+| fundo | string | ⚪ | Cor do fundo principal |
+| grade | string | ⚪ | Cor da grade tecnológica do fundo |
+| lateral | string | ⚪ | Cor da lateral geométrica esquerda |
+| gradiente1 | string | ⚪ | Primeira cor do gradiente (avatar/detalhes) |
+| gradiente2 | string | ⚪ | Segunda cor do gradiente (avatar/detalhes) |
+| textoTag | string | ⚪ | Cor do texto superior de identificação |
+| textoPrincipal | string | ⚪ | Cor do texto principal de boas-vindas |
+| textoSecundario | string | ⚪ | Cor do subtítulo do grupo |
+| fundoInfo | string | ⚪ | Fundo da caixa de informações |
+| bordaInfo | string | ⚪ | Borda da caixa de informações |
+| glowAvatar | string | ⚪ | Cor do efeito glow do avatar |
+| anelAvatar2 | string | ⚪ | Segunda cor do anel do avatar |
+
+---
+
+### 📌 /api/canvas/welcomesocial
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso da API |
+| query | string | 🟢 | Nome do usuário exibido no card social |
+| imgperfil | string | ⚪ | URL da foto de perfil |
+| nomegrupo | string | ⚪ | Nome do grupo/servidor |
+| numerouser | string | ⚪ | ID ou número do membro |
+| invite | string | ⚪ | Link de convite do servidor (ex: discord.gg/xxxx) |
+| serverId | string | ⚪ | ID ou código do servidor |
+| fundo | string | ⚪ | Cor do fundo principal |
+| grade | string | ⚪ | Cor da grade do fundo |
+| lateral | string | ⚪ | Cor da faixa lateral esquerda |
+| gradiente1 | string | ⚪ | Primeira cor do gradiente (avatar/detalhes) |
+| gradiente2 | string | ⚪ | Segunda cor do gradiente (avatar/detalhes) |
+| textoTag | string | ⚪ | Cor do texto superior de identificação |
+| textoPrincipal | string | ⚪ | Cor do nome principal do grupo |
+| textoSecundario | string | ⚪ | Cor do subtítulo do grupo |
+| fundoInfo | string | ⚪ | Cor da caixa de informações |
+| bordaInfo | string | ⚪ | Cor da borda da caixa de informações |
+| glowAvatar | string | ⚪ | Cor do efeito glow do avatar |
+| anelAvatar2 | string | ⚪ | Segunda cor do anel do avatar |
 
 ---
 
