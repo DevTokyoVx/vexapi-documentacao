@@ -22,7 +22,6 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 | **welcomesocial** | `/api/canvas/welcomesocial` | Gera um card social moderno com informações do usuário e servidor. |
 
 ---
-
 ## 🟦 Parâmetros por Endpoint
 
 ### 📌 /api/canvas/welcome
@@ -39,6 +38,12 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 | corretangulo | string | ⚪ | Cor do fundo |
 | corborda1 | string | ⚪ | Borda superior |
 | corborda2 | string | ⚪ | Borda inferior |
+
+### 🖼️ Preview
+
+<p align="center">
+  <img src="https://uploader.nazuna.com.br/uploads/templates-api/d70bebc68176cbdc.png" alt="Preview do Welcome Card" width="400">
+</p>
 
 ---
 
