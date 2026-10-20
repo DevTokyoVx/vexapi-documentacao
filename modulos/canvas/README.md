@@ -82,13 +82,7 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 
 ### 🖼️ Preview
 
-<p align="center">
-  <img
-    src="https://uploader.nazuna.com.br/uploads/templates-api/4b5b2ca3ea21edb1.gif"
-    alt="Preview animado do Welcome Card"
-    width="400"
-  />
-</p>
+![Preview do Welcome Card](./welcome-card.gif)
 ---
 
 ### 📌 /api/canvas/brat
