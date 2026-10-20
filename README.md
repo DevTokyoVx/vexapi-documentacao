@@ -43,6 +43,22 @@ Sinta-se livre para abrir issues, enviar sugestões ou criar PRs para ajudar a m
 
 ---
 
+# 🌐 Faça parte da nossa comunidade!
+
+Entre para a nossa comunidade e fique por dentro das novidades, atualizações e suporte da VEX API.
+
+<p align="center">
+  <a href="https://discord.gg/7W3rVSgFX">
+    <img src="https://img.shields.io/badge/Discord-Entre%20na%20comunidade-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord">
+  </a>
+  <a href="https://whatsapp.com/channel/0029Vb7bjAK7j6gEdyp6g13D">
+    <img src="https://img.shields.io/badge/WhatsApp-Entre%20no%20grupo-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WhatsApp">
+  </a>
+</p>
+
+---
+
+
 # ⭐ Gostou?
 
 Considere deixar uma **estrela (⭐)** no repositório para apoiar o projeto e fortalecer a comunidade!
