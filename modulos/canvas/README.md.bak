@@ -60,6 +60,12 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 | corLinhas | string | ⚪ | Cor das linhas |
 | glow | boolean | ⚪ | Ativar efeito glow |
 
+### 🖼️ Preview
+
+<p align="center">
+  <img src="https://uploader.nazuna.com.br/uploads/templates-api/69fd26fbe91a5e01be9b.png" alt="Preview do Welcome Card" width="400">
+</p>
+
 ---
 
 ### 📌 /api/canvas/welcomegif
@@ -74,6 +80,11 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 | delay | number | ⚪ | Velocidade |
 | textColor | string | ⚪ | Cor do texto |
 
+### 🖼️ Preview
+
+<p align="center">
+  <img src="https://uploader.nazuna.com.br/uploads/templates-api/4b5b2ca3ea21edb1.gif" alt="Preview do Welcome Card" width="400">
+</p>
 ---
 
 ### 📌 /api/canvas/brat

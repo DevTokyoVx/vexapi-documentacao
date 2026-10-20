@@ -80,10 +80,10 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 | delay | number | ⚪ | Velocidade |
 | textColor | string | ⚪ | Cor do texto |
 
-### 🖼️ Preview
+<h3 align="center">🖼️ Preview</h3>
 
 <p align="center">
-  <img src="https://uploader.nazuna.com.br/uploads/templates-api/4b5b2ca3ea21edb1.gif" alt="Preview do Welcome Card" width="400">
+  <img src="https://uploader.nazuna.com.br/uploads/templates-api/4b5b2ca3ea21edb1.gif" width="400" alt="Preview do Welcome Card">
 </p>
 ---
 
