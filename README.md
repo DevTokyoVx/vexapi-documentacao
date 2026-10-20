@@ -1,8 +1,8 @@
-# Simples, Poderosa e Feita Para Todos
-
 <p align="center">
-  <img src="http://uploader.nazuna.com.br/uploads/templates-api/ede41252219cda5586e8.png" alt="Logo" width="180" style="border-radius: 50%;">
+  <img src="http://uploader.nazuna.com.br/uploads/templates-api/ede41252219cda5586e8.png" alt="Logo" width="300">
 </p>
+
+<h3 align="center">Simples, Poderosa e Feita Para Todos</h3>
 
 ---
 

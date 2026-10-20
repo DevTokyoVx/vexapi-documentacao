@@ -1,7 +1,7 @@
-# 🌀 VEX API — Simples, Poderosa e Feita Para Todos
+# Simples, Poderosa e Feita Para Todos
 
 <p align="center">
-  <img src="https://hobsidian.shop/uploads/templates-api/3ba1808d9b667bd3f32d.png" alt="VEX API Logo" width="180" style="border-radius: 50%;">
+  <img src="http://uploader.nazuna.com.br/uploads/templates-api/ede41252219cda5586e8.png" alt="Logo" width="180" style="border-radius: 50%;">
 </p>
 
 ---
