@@ -1,4 +1,4 @@
-# 📦 Índice de Módulos: Vex API
+# 📦 Índice de Módulos
 
 Bem-vindo ao núcleo de exemplos da Vex API. Aqui você encontrará os scripts organizados por categorias funcionais.
 
@@ -37,4 +37,9 @@ Cada pasta abaixo contém exemplos práticos (`.js`) e um guia específico (`REA
    ```
 
 ---
-_Vex API  — Precisão, Velocidade e Design._
+
+<p align="center">
+  <img src="http://uploader.nazuna.com.br/uploads/templates-api/ede41252219cda5586e8.png" alt="Logo" width="450">
+</p>
+
+<h3 align="center">Simples, Poderosa e Feita Para Todos</h3>
