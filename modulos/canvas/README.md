@@ -82,7 +82,9 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 
 ### 🖼️ Preview
 
-![Preview do Welcome Card](./welcome-card.gif)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DevTokyoVx/vexapi-documentacao/main/modulos/canvas/welcome-card.gif" alt="Preview animado do Welcome Card" width="400">
+</p>
 ---
 
 ### 📌 /api/canvas/brat
