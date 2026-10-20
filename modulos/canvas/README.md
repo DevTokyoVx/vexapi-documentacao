@@ -83,7 +83,7 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 ### 🖼️ Preview
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/DevTokyoVx/vexapi-documentacao/main/modulos/canvas/welcome-card.gif" alt="Preview animado do Welcome Card" width="400">
+  <img src="https://raw.githubusercontent.com/DevTokyoVx/vexapi-documentacao/main/modulos/canvas/previews/welcome-card.gif" alt="Preview animado do Welcome Card" width="400">
 </p>
 ---
 
@@ -115,7 +115,7 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 ### 🖼️ Preview
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/DevTokyoVx/vexapi-documentacao/main/modulos/canvas/bratvid.gif" alt="Preview animado do Welcome Card" width="400">
+  <img src="https://raw.githubusercontent.com/DevTokyoVx/vexapi-documentacao/main/modulos/canvas/previews/bratvid.gif" alt="Preview animado do Welcome Card" width="400">
 </p>
 
 ---
@@ -158,6 +158,13 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 | borderColor | string | ⚪ | Cor borda |
 | backgroundColor | string | ⚪ | Cor fundo |
 
+### 🖼️ Preview
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DevTokyoVx/vexapi-documentacao/main/modulos/canvas/previews/friend.gif" alt="Preview animado do Welcome Card" width="400">
+</p>
+
+
 ---
 
 ### 📌 /api/canvas/lovegif
@@ -172,6 +179,13 @@ O módulo **Canvas** da Vex API permite a geração dinâmica de imagens, cartõ
 | frames | number | ⚪ | Frames |
 | color | string | ⚪ | Cor principal |
 | textColor | string | ⚪ | Cor do texto |
+
+### 🖼️ Preview
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/DevTokyoVx/vexapi-documentacao/main/modulos/canvas/previews/love.gif" alt="Preview animado do Welcome Card" width="400">
+</p>
+
 
 ---
 
