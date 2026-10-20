@@ -6,25 +6,7 @@
 
 ---
 
-## 🌐 Nossas redes sociais
-
-<p align="left">
-  <a href="https://whatsapp.com/channel/0029Vb7bjAK7j6gEdyp6g13D" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="45" alt="WhatsApp">
-  </a>
-
-  <a href="https://instagram.com/vexsolutionstech" target="_blank" style="margin-left: 10px;">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" width="45" alt="Instagram">
-  </a>
-
-  <a href="https://www.facebook.com/share/1K8977q68d/" target="_blank" style="margin-left: 10px;">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="45" alt="Facebook">
-  </a>
-</p>
-
----
-
-# 📚 Vex API – Documentação & Exemplos
+# 📚 Documentação & Exemplos
 
 Exemplos práticos e documentação detalhada de uso da **Vex API**, voltados para desenvolvedores iniciantes e profissionais.  
 Inclui tutoriais de integração, scripts em **Node.js (ESM)** e demonstrações de como consumir e manipular os dados retornados pela API.
