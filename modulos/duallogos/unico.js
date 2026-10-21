@@ -75,7 +75,7 @@ function baixarImagem(url, destino) {
 const apikey = 'SUA-API-KEY';
 const texto1 = 'Tokyo';
 const texto2 = 'Bella';
-const estiloLogo = 'deadpool';
+const estiloLogo = 'marvel';
 
 // URL completa da API
 const urlAPI = `https://vexapi.com.br/api/duallogos/${estiloLogo}?apikey=${apikey}&query=${encodeURIComponent(texto1)}&text2=${encodeURIComponent(texto2)}`;
