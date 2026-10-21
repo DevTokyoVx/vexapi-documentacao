@@ -112,4 +112,9 @@ Todos os arquivos já incluem:
 - ✔️ Logs detalhados no console  
 - ✔️ Exemplo funcional pronto para execução  
 
----
+---
+<p align="center">
+  <img src="https://uploader.nazuna.com.br/uploads/templates-api/ede41252219cda5586e8.png" alt="Logo" width="450">
+</p>
+
+<h3 align="center">Simples, Poderosa e Feita Para Todos</h3>
