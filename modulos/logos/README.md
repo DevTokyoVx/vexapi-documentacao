@@ -22,6 +22,13 @@ O módulo **Logos** da Vex API fornece ferramentas para a criação de identidad
 | apikey | string | 🟢 | Chave de acesso |
 | query | string | 🟢 | Primeiro emoji |
 | emoji2 | string | 🟢 | Segundo emoji |
+---
+
+### 🖼️ Preview
+
+<p align="center">
+  <img src="https://uploader.nazuna.com.br/uploads/templates-api/9f36415a931e79e1.png" alt="Preview do Welcome Card" width="400">
+</p>
 
 ---
 
