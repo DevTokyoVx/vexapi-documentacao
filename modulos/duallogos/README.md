@@ -9,8 +9,6 @@ O módulo **DualLogos** da Vex API permite a criação de identidades visuais co
 | Nome | Rota | Descrição |
 | :--- | :--- | :--- |
 | **Deadpool** | `/api/duallogos/deadpool` | Logo baseada no estilo visual do personagem Deadpool. |
-| **Glow Dual** | `/api/duallogos/glow` | Logo com efeito de brilho neon em dois textos. |
-| **Black Pink** | `/api/duallogos/blackpink` | Estilo inspirado no grupo BlackPink. |
 | **Marvel** | `/api/duallogos/marvel` | Estilo clássico dos quadrinhos Marvel. |
 
 > [!TIP]
