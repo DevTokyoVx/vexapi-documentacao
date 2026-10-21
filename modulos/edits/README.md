@@ -115,13 +115,13 @@ GET /api/edits/blackwhite?apikey=SUA_KEY&query=https://exemplo.com/imagem.png
 ### 🖼️ Preview
 
 <p align="center">
-  <img src="URL_DA_IMAGEM_WOJAKREACTION" alt="Preview do efeito Wojak Reaction" width="400">
+  <img src="https://uploader.nazuna.com.br/uploads/templates-api/f15e56f23bf287909d41.webp" alt="Preview do efeito Wojak Reaction" width="400">
 </p>
 
 ---
 
 
-### 📌 /api/edits/camra
+### 📌 /api/edits/camera
 
 | Parâmetro | Tipo | Obrigatório | Descrição |
 | :--- | :--- | :---: | :--- |
@@ -147,6 +147,7 @@ GET /api/edits/blackwhite?apikey=SUA_KEY&query=https://exemplo.com/imagem.png
 - [desfoque.js](./desfoque.js)
 - [jornal.js](./jornal.js)
 - [wojakreaction.js](./wojakreaction.js)
+- [camera.js](./camera.js)
 
 Todos os arquivos já incluem:
 - ✔️ Código completo em formato ESM  
