@@ -52,6 +52,43 @@ O módulo **Logos** da Vex API fornece ferramentas para a criação de identidad
   <img src="https://uploader.nazuna.com.br/uploads/templates-api/16c8fdd2a7eb6d0c16d2.png" alt="Preview do Welcome Card" width="400">
 </p>
 
+---
+
+### 📌 /api/logos/blood
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso |
+| query | string | 🟢 | Texto da logo |
+
+---
+
+### 🖼️ Preview
+
+<p align="center">
+  <img src="https://uploader.nazuna.com.br/uploads/templates-api/eece561a43f29538654c.jfif" alt="Preview do Welcome Card" width="400">
+</p>
+
+---
+
+### 📌 /api/logos/amongus
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso |
+| query | string | 🟢 | Texto da logo |
+
+---
+
+### 🖼️ Preview
+
+<p align="center">
+  <img src="https://uploader.nazuna.com.br/uploads/templates-api/16c8fdd2a7eb6d0c16d2.png" alt="Preview do Welcome Card" width="400">
+</p>
+
+---
+
+
 ## 📁 Scripts Disponíveis
 
 - [emojimix.js](./emojimix.js): Script para fusão dinâmica de emojis.
