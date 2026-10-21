@@ -71,7 +71,7 @@ O módulo **Logos** da Vex API fornece ferramentas para a criação de identidad
 
 ---
 
-### 📌 /api/logos/amongus
+### 📌 /api/logos/summerbeach
 
 | Parâmetro | Tipo | Obrigatório | Descrição |
 | :--- | :--- | :---: | :--- |
@@ -83,7 +83,25 @@ O módulo **Logos** da Vex API fornece ferramentas para a criação de identidad
 ### 🖼️ Preview
 
 <p align="center">
-  <img src="https://uploader.nazuna.com.br/uploads/templates-api/16c8fdd2a7eb6d0c16d2.png" alt="Preview do Welcome Card" width="400">
+  <img src="https://uploader.nazuna.com.br/uploads/templates-api/1d2e6e63c028c31d5d34.jfif" alt="Preview do Welcome Card" width="400">
+</p>
+
+---
+
+
+### 📌 /api/logos/firework
+
+| Parâmetro | Tipo | Obrigatório | Descrição |
+| :--- | :--- | :---: | :--- |
+| apikey | string | 🟢 | Chave de acesso |
+| query | string | 🟢 | Texto da logo |
+
+---
+
+### 🖼️ Preview
+
+<p align="center">
+  <img src="https://uploader.nazuna.com.br/uploads/templates-api/32bf4bc1e0a0ea874b2f.jfif" alt="Preview do Welcome Card" width="400">
 </p>
 
 ---
@@ -100,3 +118,10 @@ Todos os arquivos já incluem:
 - ✔️ Exemplo funcional pronto para execução  
 
 ---
+
+<p align="center">
+  <img src="http://uploader.nazuna.com.br/uploads/templates-api/ede41252219cda5586e8.png" alt="Logo" width="450">
+</p>
+
+<h3 align="center">Simples, Poderosa e Feita Para Todos</h3>
+
