@@ -13,6 +13,8 @@ O módulo **Edits** da Vex API fornece ferramentas robustas para manipulação d
 | **Desfoque** | `/api/edits/desfoque` | Aplica efeito Gaussian Blur (Bokeh) na imagem enviada. |
 | **Jornal** | `/api/edits/jornal` | Transforma a imagem em uma estética de recorte de jornal antigo. |
 | **Wojak Reaction** | `/api/edits/wojakreaction` | Sobrepõe a imagem em um template clássico de meme Wojak. |
+| **Câmera** | `/api/edits/camera` | Sobrepõe a imagem em um template de câmera. |
+
 
 ---
 
