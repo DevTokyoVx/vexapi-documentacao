@@ -1,3 +1,4 @@
+
 /**
  * ============================================
  * 📡 VEX API - PESQUISAS / TIKTOK
@@ -58,10 +59,10 @@ async function buscarVexAPI(url) {
 // CONFIGURAÇÃO
 // ==========================
 
-const apikey = 'SUA-API-KEY';
+const apikey = 'SUA-APIKEY"
 const query = 'do i wanna know';
 
-const url = `https://vexapi.com.br/api/search/tiktok?apikey=${apikey}&query=${encodeURIComponent(query)}`;
+const url = `https://vexapi.com.br/api/pesquisa/tiktok?apikey=${apikey}&query=${encodeURIComponent(query)}`;
 
 // ==========================
 // EXECUÇÃO
@@ -72,17 +73,26 @@ const url = `https://vexapi.com.br/api/search/tiktok?apikey=${apikey}&query=${en
 
         const dados = await buscarVexAPI(url);
 
-        if (dados?.results?.length) {
+        if (!dados.status || dados.codigo !== 200) {
+            throw new Error(dados.message || 'Erro ao consultar a API');
+        }
+
+        const resultados = dados.resposta?.results;
+
+        if (resultados?.length) {
             console.log('==============================');
             console.log('📱 RESULTADOS DO TIKTOK');
             console.log('==============================\n');
 
-            const primeiro = dados.results[0];
-            console.log(`Título:  ${primeiro.title}`);
-            console.log(`Likes:   ${primeiro.like}`);
-            console.log(`Shares:  ${primeiro.share}`);
+            const primeiro = resultados[0];
+
+            console.log(`Título:  ${primeiro.desc}`);
+            console.log(`Likes:   ${primeiro.stats?.digg}`);
+            console.log(`Shares:  ${primeiro.stats?.share}`);
+            console.log(`Comentários: ${primeiro.stats?.comment}`);
+            console.log(`Visualizações: ${primeiro.stats?.play}`);
             console.log(`Música:  ${primeiro.music?.title} - ${primeiro.music?.author}`);
-            console.log(`Download (No Watermark): ${primeiro.no_watermark}`);
+            console.log(`Download (No Watermark): ${primeiro.videoUrl}`);
             console.log('\n-------------------------');
 
         } else {
@@ -97,12 +107,12 @@ const url = `https://vexapi.com.br/api/search/tiktok?apikey=${apikey}&query=${en
 /**
  * 🚀 OBSERVAÇÕES:
  *   - O array `results` contém os vídeos encontrados.
- *   - O campo `no_watermark` permite baixar o vídeo limpo.
+ *   - O campo `videoUrl` permite baixar o vídeo sem marca d'água.
  *
  * 👨‍💻 CRIADO POR:
  *   Vex Tech Solutions
  *
  * 📅 ATUALIZADO EM:
- *   28/04/2026
+ *   29/10/2026
  * ============================================
  */
